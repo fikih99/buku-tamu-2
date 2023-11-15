@@ -42,4 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function petugas_checkin(){
+        return $this->hasMany(guest::class, 'petugas_checkin', 'id');
+        //model ini memiliki banyak model tamu
+    }
+    public function petugas_checkout(){
+        return $this->hasMany(guest::class, 'petugas_checkout', 'id');
+        //model ini memiliki banyak model tamu
+    }
+    //membuat relasi antar tabel dengan cara menggunakan hasmanydan blongsTo di mana hasmany artinya memiliki banyak data dari tabel tamu dan blongsto artinyasatu tamu di miliki oleh satu tamu
 }
